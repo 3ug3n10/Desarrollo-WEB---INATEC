@@ -112,3 +112,75 @@ footer {
     padding: 18px 20px;
     margin-bottom: 10px;
 }
+
+/*Media Queries*/
+
+/*Tablets (hasta 768px) */
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 0 10px;
+    }
+
+    /*Se muestra el boton de menu*/
+    .menu-boton {
+        display: block;
+        padding: 16px 20px;
+        color: var(--color-blanco);
+        cursor: pointer;
+    }
+
+    /*El menu pasa a ser vertical y queda oculto*/
+    .menu ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    /*Al presionar el boton se muestra el menu*/
+    #menu-toggle:checked ~ ul {
+        display: flex;
+    }
+
+    .portada img {
+        width: 100%;
+    }
+
+    /*Tarjetas en 2 columnas*/
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*La ultima tarjeta ocupa todo el ancho*/
+    .tarjeta:last-child {
+        grid-column: span 2;
+    }
+}
+
+/*Celulares (hasta 480px) */
+@media (max-width: 480px) {
+    .contenedor {
+        padding: 0;
+    }
+
+    .portada img {
+        max-height: 100%;
+    }
+
+    /*Tarjetas en 1 columna*/
+    .tarjetas {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    /*La ultima tarjeta ocupa todo el ancho*/
+    .tarjeta:last-child {
+        grid-column: auto;
+    }
+
+    /*Pie de pagina en columna y centrado*/
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+        margin-bottom: 0;
+    }
+}
