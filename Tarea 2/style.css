@@ -1,0 +1,114 @@
+/* Variables (Me resulta mas comodo una vez definidas) */
+:root {
+    --color-principal: #0f2427;
+    --color-secundario: #1f4a50;
+    --color-blanco: #ffffff;
+    --color-fondo: #e6e6e6;
+    --espacio: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: var(--color-fondo);
+}
+
+.contenedor {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 var(--espacio);
+}
+
+/* Menu */
+.menu {
+    background-color: var(--color-principal);
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    display: block;
+    padding: 16px 20px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Pseudo-clases */
+.menu a:hover {
+    background-color: var(--color-secundario);
+}
+
+.menu a:active {
+    opacity: 0.8;
+}
+
+.menu a:focus-visible {
+    outline: 2px solid var(--color-blanco);
+    outline-offset: -4px;
+}
+
+/* Opcion Seleccionada */
+.menu a.active {
+    background-color: var(--color-blanco);
+    color: var(--color-principal);
+}
+
+/* El boton y el checkbox del menu se ocultan en pantallas grandes */
+#menu-toggle,
+.menu-boton {
+    display: none;
+}
+
+/*Imagen Central*/
+.portada {
+    padding: 6px 0;
+}
+
+.portada img {
+    width: 75%;
+    max-height: 450px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Tarjetas: 3 columnas en pantallas grandes */
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*Sirve para crear 3 columnas de igual ancho */
+    gap: var(--espacio);
+    padding: var(--espacio) 0;
+}
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    padding: var(--espacio);
+    border-top: 4px solid var(--color-principal);
+}
+
+.tarjeta h2 {
+    font-size: 18px;
+    color: var(--color-principal);
+    margin-bottom: 8px;
+}
+
+/*Pie de pagina*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: 18px 20px;
+    margin-bottom: 10px;
+}

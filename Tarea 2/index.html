@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Responsive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <nav class="menu">
+            <!-- Botón de Menú (solo visible en dispositivos móviles)-->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-boton">&#9776; Menú</label>
+
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">Contáctenos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Imagen central -->
+            <section class="portada">
+                <img src="https://images.pexels.com/photos/11035371/pexels-photo-11035371.jpeg" alt="Logo de HTML5">
+            </section>
+
+            <!-- Tarjetas que se reorganizan según el tamaño de pantalla -->
+            <section class="tarjetas">
+                <article class="tarjeta">
+                    <h2>Productos</h2>
+                    <p>Conoce los productos que ofrecemos para tu hogar y tu negocio.</p>
+                </article>
+                <article class="tarjeta">
+                    <h2>Servicios</h2>
+                    <p>Brindamos soporte técnico, diseño web y asesoría personalizada.</p>
+                </article>
+                <article class="tarjeta">
+                    <h2>Contáctenos</h2>
+                    <p>Escríbenos y con gusto responderemos todas tus preguntas.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Elaborado por EUGENIO JOAQUIN BLANDÓN GARCIA.</p>
+            <p>Desarrollo Web - INATEC</p>
+        </footer>
+    </div>
+</body>
+</html>
