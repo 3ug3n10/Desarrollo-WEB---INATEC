@@ -1,0 +1,85 @@
+/*Estilos del Menu */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #e6e6e6;
+}
+
+.contenedor {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    background-color: #0f2427;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    display: block;
+    padding: 16px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Pseudo-clases */
+.menu a:hover {
+    background-color: #1f4a50;
+}
+
+.menu a:active {
+    opacity: 0.8;
+}
+
+.menu a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
+}
+
+.menu li.first-child a {
+    font-weight: bold;
+}
+
+/* opción Seleccionada */
+.menu a.active {
+    background-color: #ffffff;
+    color: #0f2427;
+}
+
+/*Imagen Central*/
+main {
+    text-align: center;
+    padding: 6px 0;
+}
+
+main img {
+    max-width: 75%;
+    max-height: 700px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Pie de Pagina*/
+footer {
+    background-color: #0f2427;
+    color: #ffffff;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+}
