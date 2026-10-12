@@ -1,0 +1,1 @@
+Repositorio creado como respaldo de la realización de las diferentes tareas desarrolladas durante el curso de Desarrollo WEB con HTML y JAVASCRIPT impartido por el Tecnológico Nacional de Nicaragua 2026.
