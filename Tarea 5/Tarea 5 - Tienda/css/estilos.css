@@ -68,3 +68,28 @@ footer {
 	background-color: white;
 	width: 25%;
 }
+
+/*Sombra simple blanca al título de productos destacados*/
+#destacados > h1{
+	text-shadow: 0 0 3px white;
+}
+
+/*Sombra de caja simple a los productos en oferta*/
+#ofertas .contenedor > div{
+	box-shadow: 4px 8px;
+}
+
+/*Sombra de caja con color específico a los productos disponibles*/
+#disponible .contenedor > div{
+	box-shadow: 4px 8px #D46A6A;
+}
+
+/*Doble sombra al título de ofertas*/
+#ofertas > h1{
+	text-shadow: 1px 1px 2px white, 0 0 30px #D46A6A;
+}
+
+/*Sombra avanzada (doble capa) a los productos destacados*/
+#destacados .contenedor > div{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(255, 255, 0, 0.3);
+}
