@@ -1,0 +1,21 @@
+/*Selector de etiquetas (tipo): aplica a TODOS los <label> del documento*/
+label {
+    width: 200px;
+    display: inline-block; /*Permite aplicar width y height  sin romper la linea*/
+}
+
+/*Selector de etiqueta para el cuerpo del documento*/
+body {
+    margin: 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/*Selector multiple (agrupado): la coma significa "y"*/
+p, label {
+    font-family: Tahoma, 'Geneva', sans-serif;
+}
+
+/*Selector de atributo: Solo los <input> con el atributo name="email"*/
+input[name="email"] {
+    background-color: #eeeeee;
+}

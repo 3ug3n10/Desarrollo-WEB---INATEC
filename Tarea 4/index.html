@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>HTML Base</title>
+	<!-- rel="stylesheet": le dice al navegador que use el archivo CSS -->
+	<!-- href="css/estilos.css": le dice al navegador donde se encuentra el archivo CSS -->
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<h1>Registro en nuestra tienda</h1>
+<form action="">
+	<p>
+		<label for="username">Nombre de usuario</label>
+		<br>
+		<input type="text" name="username" placeholder="Ej: luis" autofocus required>
+	</p>
+	<p>
+		<label for="email">Email: </label>
+		<br>
+		<input type="email" name="email" placeholder="Ej: luis@gmail.com" required>
+	</p>
+	<p>
+		<label for="age">Edad: </label>
+		<br>
+		<input type="number" name="age" placeholder="Ej: 21" required>
+	</p>
+	<p>
+		<label for="dob">Fecha de nacimiento: </label>
+		<br>
+		<input type="date" name="dob" placeholder="Ej: 21" >
+	</p>
+	<p>
+		<label for="genre">G&eacute;nero: </label>
+		<br>
+		<input type="radio" name="genre"> Masculino
+		<br>
+		<input type="radio" name="genre"> Femenino
+	</p>
+	<p>
+		<label for="recommend">Recomendado por: </label>
+		<br>
+		<select name="recommend">
+			<option value="1">Google</option>
+			<option value="1">Amigo</option>
+			<option value="1">Redes Sociales</option>
+		</select>
+	</p>
+	<p>
+		<label for="comment">Comentarios: </label>
+		<br>
+		<!-- El tamaño ya no lo define el HTML; en caso que se requiere quien lo controlaría seria el CSS -->
+		<textarea name="comment" id=""></textarea>
+	</p>
+
+	<p>
+		<label for="accept">Acepto terminos y condiciones: </label>
+		<br>
+		<input type="checkbox" name="accept">
+	</p>
+
+	<p>
+		<input type="submit" value="Registrar">
+	</p>
+</form>
+
+</body>
+</html>
