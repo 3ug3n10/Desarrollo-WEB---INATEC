@@ -4,7 +4,21 @@ body {
 	width: 70%;
 	color: #605B56;
 }
+/*Pasos 1, 2 y 3: Encabezado más grande, con fondo degradado y esquinas redondeadas*/
+header {
+	/*Paso 1: espacio interno (3px arriba/abajo, 10 px a los lados) y separacion con el menu*/
+	padding: 3px 10px;
+	margin-bottom: 5px;
 
+	/*Paso 2: degradado de izquierda (#5CA861) a derecha (#BADFBC)*/
+	background: -webkit-linear-gradient(left, #5ca861, #BADFBC); /*Chrome y Safari antiguos*/
+	background: -o-linear-gradient(left, #5ca861, #BADFBC); /*Opera antiguo*/
+	background: -moz-linear-gradient(left, #5ca861, #BADFBC); /*Firefox antiguo*/
+	background: linear-gradient(to right, #5ca861, #BADFBC); /*Estandar (navegadores actuales)*/
+
+	/*Paso 3: esquinas redondeadas*/
+	border-radius: 10px;
+}
 
 header h1{
 	padding-left: 10px;
@@ -26,6 +40,8 @@ header h1{
 	margin-left: 200px;
 	padding: 10px;
 	color: black;
+	background-image: url("../imagenes/imagen3.jpg"); /*Nuevo - Paso 4*/
+	border-radius: 6px; /*Nuevo - paso 5*/
 }
 
 footer {
@@ -38,4 +54,7 @@ footer {
 
 #contenido p img {
 	float: right;
+	border: solid 2px #605B56; /*Nuevo: borde solido de 2px, del mismo color que el texto*/
+	margin: 3px; /*Nuevo: separa la imagen del texto que la rodea*/
+	border-radius: 4px; /*Nuevo: esquinas redondeadas*/
 }
