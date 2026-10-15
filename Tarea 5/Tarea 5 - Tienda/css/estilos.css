@@ -1,3 +1,7 @@
+*{
+	box-sizing: border-box; /*el padding y el borde cuentan dentro del width*/
+}
+
 body {
 	margin: 20px;
 }
@@ -26,3 +30,41 @@ footer {
 	text-align: center;
 }
 
+/*Cada contenedor muestra sus productos en fila (uno al lado del otro)*/
+.contenedor{
+	display: flex;
+	flex-direction: row;
+}
+
+/*Las tres secciones se apilan en columna (una debajo de la otra)*/
+#contenido{
+	display: flex;
+	flex-direction: column;
+}
+
+/*Productos destacados - 2 columnas, cada producto ocupa el 50%*/
+#destacados .contenedor > div{
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	background-color: white;
+	width: 50%;
+}
+
+/*Ofertas - 3 columnas, cada producto ocupa un tercio (33.3%)*/
+#ofertas .contenedor > div{
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	background-color: white;
+	width: 33.3%;
+}
+
+/*Disponible - 4 columnas, cada producto ocupa un cuarto (25%) y lleva borde coral*/
+#disponible .contenedor > div{
+	text-align: center;
+	padding: 10px;
+	border: solid 5px coral;
+	background-color: white;
+	width: 25%;
+}
