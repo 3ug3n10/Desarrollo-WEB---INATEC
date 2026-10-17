@@ -46,3 +46,35 @@ body {
 	flex-flow: row wrap;
 }
 
+/* ===== Div de resumen ===== */
+/* Paso 2: por defecto (pantallas menores a 600px, como celulares) el resumen está oculto.
+   display:none quita el elemento de la página, como si no existiera. */
+#resumen {
+	display: none;
+}
+
+/* ===== Punto de corte 1: 600px ===== */
+/* min-width: 600px significa "aplica esto cuando la ventana mida 600px o más" */
+@media (min-width: 600px) {
+	/* Paso 3: a partir de 600px el resumen vuelve a aparecer */
+	#resumen {
+		display: block;
+	}
+
+	/* Paso 4: letra de 16px y color rojo en el resumen */
+	#resumen p {
+		font-size: 16px;
+		color: red;
+	}
+}
+
+/* ===== Punto de corte 2: 900px ===== */
+/* Va DESPUÉS del de 600px. Con 900px o más se cumplen las dos condiciones,
+   y como esta regla está más abajo, gana y sobrescribe la anterior. */
+@media (min-width: 900px) {
+	/* Paso 5: letra de 14px y color negro */
+	#resumen p {
+		font-size: 14px;
+		color: black;
+	}
+}

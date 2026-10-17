@@ -1,12 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- Cambio "en" por "es" porque el contenido está en español -->
 <head>
-	<title>Escuela de Niños creativos</title>
-	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/estilos.css">
+	<!-- charset va primero para que el navegador lea bien las tildes y la ñ del título -->
 	<meta charset="utf-8">
-
+	<!-- IMPORTANTE para media queries: sin esta línea el celular simula una pantalla
+	     de unos 980px y las reglas de 600px y 900px no funcionarían como esperamos -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Escuela de Niños creativos</title>
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css"> <!--Se arreglaron las comillas simples, por dobles-->
+	<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 <div class="container" role="main">
@@ -15,6 +17,11 @@
 	</div>
 	<div class="c2">
 		<p>En esta escuela tenemos el lema "Crea, juega, aprende"...</p>
+	</div>
+	<!-- Nuevo div de resumen: el CSS lo oculta en pantallas pequeñas
+	     y lo muestra a partir de 600px de ancho -->
+	<div id="resumen">
+		<p>Resumen: una escuela donde los niños crean, juegan y aprenden al mismo tiempo.</p>
 	</div>
 	<div class="c3">
 		<h2>Crea</h2>
