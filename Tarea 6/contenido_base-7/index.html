@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- "es" porque el contenido está en español -->
 <head>
-	<title>Escuela de Niños creativos</title>
-	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/estilos.css">
+	<!-- charset primero para que se lean bien las tildes y la ñ -->
 	<meta charset="utf-8">
+	<!-- Necesaria para que las media queries funcionen en celulares de verdad -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Escuela de Niños creativos</title>
+	<!-- Cambio las comillas simples por dobles, para ser consistente con el resto -->
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+<!-- Las 5 cajas ahora son hijas directas de .container,
+     así flexbox puede acomodarlas en filas y columnas -->
 <div class="container" role="main">
+	<!-- c1: título, siempre ocupa todo el ancho -->
 	<div class="c1">
 		<h1>Escuela de Niños Creativos</h1>
 	</div>
+	<!-- c2: el lema, en escritorio también ocupa todo el ancho -->
+	<div class="c2">
+		<p>En esta escuela tenemos el lema "Crea, juega, aprende"...</p>
+	</div>
+	<!-- c3, c4 y c5: las tres columnas que en escritorio se ponen lado a lado -->
+	<div class="c3">
+		<h2>Crea</h2>
+		<p>Actividades para estimular la creatividad</p>
+	</div>
 	<div class="c4">
-		<div class="c2">
-			<h2>Crea</h2>
-			<p>Actividades para estimular la creatividad</p>
-		</div>
-		<div class="c3">
-			<h2>Juega</h2>
-			<p>Divertirse en un ambiente sano</p>
-		</div>
-		<div class="c5">
-			<h2>Aprende</h2>
-			<p>Aprende mientras juegas</p>
-		</div>
-
+		<h2>Juega</h2>
+		<p>Divertirse en un ambiente sano</p>
+	</div>
+	<div class="c5">
+		<h2>Aprende</h2>
+		<p>Aprende mientras juegas</p>
 	</div>
 </div>
 </body>

@@ -46,3 +46,55 @@ body {
 	flex-flow: row wrap;
 }
 
+/* =========================================
+   1. MÓVILES (estilo base, sin media query)
+   ========================================= */
+/* Mobile first: en pantallas pequeñas cada caja ocupa toda la fila,
+   así quedan una debajo de la otra */
+.c1, .c2, .c3, .c4, .c5 {
+	width: 100%;
+}
+
+/* =========================================
+   2. TABLETAS: 600px o más
+   ========================================= */
+@media (min-width: 600px) {
+	/* c1 sigue al 100% (lo hereda del estilo base).
+	   c2 a c5 ocupan la mitad cada una, así caben 2 por fila:
+	   [ c2 | c3 ]
+	   [ c4 | c5 ] */
+	.c2, .c3, .c4, .c5 {
+		width: 50%;
+	}
+}
+
+/* =========================================
+   3. ESCRITORIO: 800px o más
+   ========================================= */
+/* Va después de la de tabletas para poder sobrescribirla */
+@media (min-width: 800px) {
+	/* El título ocupa toda la fila */
+	.c1 {
+		width: 100%;
+	}
+
+	/* El lema también ocupa toda la fila (le gana al 50% de tabletas) */
+	.c2 {
+		width: 100%;
+	}
+
+	/* Las tres cajas restantes se reparten la fila en tercios:
+	   [ c3 | c4 | c5 ]
+	   33.33% x 3 = 99.99%, así que caben justo en una fila */
+	.c3, .c4, .c5 {
+		width: 33.33%;
+	}
+
+	/* En pantallas grandes el contenedor deja de estirarse:
+	   se queda en 800px y margin auto a izquierda y derecha lo centra */
+	.container {
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
