@@ -31,3 +31,16 @@ footer {
 .adaptativa-porcentaje{
 	width:90%;
 }
+
+/*Imagenes adaptativas por porcentaje*/
+.adaptativa-porcentaje-1{
+	width: 70%;
+}
+
+.adaptativa-porcentaje-2{
+	width: 50%;
+}
+
+.adaptativa-porcentaje-3{
+	width: 20%;
+}
