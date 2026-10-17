@@ -1,0 +1,39 @@
+body {
+	font-family: Verdana;
+	width: 90%;
+	margin-left: 5%;
+	font-size: 3vw; /*Se agrego la definición de las letras en función de vw*/
+}
+
+header {
+	padding: 3px 10px;
+	margin-bottom: 5px;
+	background: -webkit-linear-gradient(left, #1f47a8, #55dedf); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, #1f47a8, #55dedf); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, #1f47a8, #55dedf); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, #1f47a8, #55dedf); /* Standard syntax */
+	border-radius: 10px;
+
+	/*Código nuevo para los espacios en vh*/
+	padding: 1vh 1vw;
+	border-radius: 1vh;
+	margin-bottom: 1vh;
+}
+
+#contenido{
+	margin: 1%;
+}
+
+
+header h1 {
+	padding-left: 1%;
+	font-size: 1.5em;
+}
+
+footer {
+	font-size: 0.8em;
+	border-top: solid 2px #1f47a8;
+	padding-top: 1vw; /*Se cambiaron los espacios en función de vw*/
+	margin-top: 1vw; /*Se cambiaron los espacios en función de vw*/
+	text-align: center;
+}
