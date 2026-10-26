@@ -252,36 +252,6 @@
       color: var(--secondary); font-family: inherit; font-weight: 500; text-transform: uppercase;
     }
 
-    /* ---------- Interruptor "Ver patrones Material" ---------- */
-    .toggle-anot {
-      position: fixed; left: 16px; bottom: 24px; z-index: 25;
-      background: var(--surface); color: var(--on-surface); border: none; cursor: pointer;
-      box-shadow: var(--elev-2); border-radius: 24px; padding: 10px 16px;
-      display: flex; align-items: center; gap: 10px;
-      font-family: inherit; font-size: 13px; font-weight: 500;
-    }
-    .switch { width: 36px; height: 20px; border-radius: 10px; background: var(--outline); position: relative; transition: background .2s; }
-    .switch::after {
-      content: ""; position: absolute; top: 2px; left: 2px;
-      width: 16px; height: 16px; border-radius: 50%; background: #fff;
-      box-shadow: var(--elev-1); transition: left .2s;
-    }
-    .anotar .switch { background: var(--primary); }
-    .anotar .switch::after { left: 18px; }
-
-    /* Etiquetas que muestran el nombre de cada componente de Material Design */
-    .anotar [data-md] { position: relative; outline: 2px dashed #E91E63; outline-offset: -2px; }
-    .anotar .app-bar { position: sticky; }
-    .anotar .fab, .anotar .drawer { position: fixed; }
-    .anotar [data-md]::after {
-      content: attr(data-md);
-      position: absolute; top: 0; left: 0; z-index: 5; pointer-events: none;
-      background: #E91E63; color: #fff; padding: 2px 8px; border-radius: 0 0 6px 0;
-      font: 500 11px/1.4 Roboto, sans-serif; letter-spacing: 0; text-transform: none; white-space: nowrap;
-    }
-    .anotar .acciones, .anotar .chips { padding-top: 24px; }
-    .anotar .fab::after { top: auto; bottom: 100%; left: auto; right: 0; border-radius: 6px 6px 0 0; }
-
     /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .nav { display: none; }
