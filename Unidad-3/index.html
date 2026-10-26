@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aroma Nica - Café de altura</title>
+
+        <!-- Tipografia Roboto e íconos de Material Design -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- ========== TOP APP BAR ==============-->
+         <header class="app-bar" data-md="Top App Bar">
+            <div class="contenedor">
+                <button class="icon-btn btn-menu" id="btnMenu" aria-label="Abrir menú">
+                    <span class="mateial-icons">menu</span>
+                </button>
+
+                <!-- Pestañas de navegación -->
+                <a href="#inicio" class="logo"><span class="material-icons">coffee</span>Aroma Nica</a>
+                <nav class="nav">
+                    <a href="#productos">Productos</a>
+                    <a href="#planes">Planes</a>
+                    <a href="#beneficios">Beneficios</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+
+                <button class="icon-btn carrito" aria-label="Carrito de compras">
+                    <span class="material-icons">shopping_cart</span>
+                    <span class="badge" id="badge" hidden>0</span>
+                </button>
+            </div>
+         </header>
+
+         <!-- ============== NAVIGATION DRAWER (móvil) =================-->
+          <div class="scrim" id="scrim"></div>
+          <aside class="drawer" id="drawer" data-md="Navigation Drawer">
+            <h3>Aroma Nica</h3>
+            <a href="#productos"><span class="material-icons">storefront</span>Productos</a>
+            <a href="#planes"><span class="material-icons">card_membership</span>Planes</a>
+            <a href="#beneficios"><span class="material-icons">star</span>Beneficios</a>
+            <a href="#contacto"><span class="material-icons">mail</span>Contactos</a>
+          </aside>
+
+          <!-- ================ HERO ==================-->
+           <section class="hero" id="inicio" data-md="Hero (superficie de color primario)">
+            <div class="contenedor">
+            <div>
+                <span class="etiqueta">☕ Café 100% nicaragüense</span>
+                <h1>Café de altura, directo a tu puerta</h1>
+                <p>Seleccionamos los mejores granos de Jinotega y Matagalpa, los tostamos cada semana y te los enviamos frescos a cualquier parte del país.</p>
+                <div class="acciones" data-md="Buttons: contained + outlined">
+                <a href="#planes" class="btn btn-contained"><span class="material-icons">local_shipping</span>Suscribirme</a>
+                <a href="#productos" class="btn btn-outlined">Ver productos</a>
+                </div>
+            </div>
+            <div class="hero-imagen"><span class="material-icons">local_cafe</span></div>
+            </div>
+        </section>
+
+        <!-- ========== PRODUCTOS ========== -->
+        <section id="productos">
+            <div class="contenedor">
+            <h2 class="titulo-seccion">Nuestros productos</h2>
+            <p class="subtitulo-seccion">Tostado fresco cada semana. Elige tu favorito.</p>
+
+            <div class="chips" id="chips" data-md="Filter Chips">
+                <button class="chip activo" data-cat="todos"><span class="material-icons">check</span>Todos</button>
+                <button class="chip" data-cat="molido"><span class="material-icons">check</span>Molido</button>
+                <button class="chip" data-cat="grano"><span class="material-icons">check</span>En grano</button>
+                <button class="chip" data-cat="capsulas"><span class="material-icons">check</span>Cápsulas</button>
+            </div>
+
+            <!-- Las tarjetas se generan con JavaScript -->
+            <div class="grid" id="gridProductos"></div>
+            </div>
+        </section>
+
+        <!-- ========== PLANES ========== -->
+        <section id="planes" class="fondo-alt">
+            <div class="contenedor">
+            <h2 class="titulo-seccion">Planes de suscripción</h2>
+            <p class="subtitulo-seccion">Recibe tu café cada mes sin preocuparte. Cancela cuando quieras.</p>
+
+            <div class="planes">
+                <article class="card plan" data-md="Card">
+                <span class="material-icons plan-icono">coffee</span>
+                <h3>Básico</h3>
+                <p class="plan-precio">C$ 450<span>/mes</span></p>
+                <ul>
+                    <li><span class="material-icons">check_circle</span>1 bolsa de 454 g</li>
+                    <li><span class="material-icons">check_circle</span>Envío gratis en Managua</li>
+                    <li><span class="material-icons">check_circle</span>Molido o en grano</li>
+                </ul>
+                <button class="btn btn-outlined" data-plan="Básico">Elegir plan</button>
+                </article>
+
+                <article class="card plan destacado" data-md="Card destacada">
+                <span class="cinta">MÁS POPULAR</span>
+                <span class="material-icons plan-icono">local_cafe</span>
+                <h3>Amante del café</h3>
+                <p class="plan-precio">C$ 800<span>/mes</span></p>
+                <ul>
+                    <li><span class="material-icons">check_circle</span>2 bolsas de 454 g</li>
+                    <li><span class="material-icons">check_circle</span>Envío gratis a todo el país</li>
+                    <li><span class="material-icons">check_circle</span>10% de descuento en la tienda</li>
+                </ul>
+                <button class="btn btn-primary" data-plan="Amante del café">Elegir plan</button>
+                </article>
+
+                <article class="card plan">
+                <span class="material-icons plan-icono">business</span>
+                <h3>Oficina</h3>
+                <p class="plan-precio">C$ 1,900<span>/mes</span></p>
+                <ul>
+                    <li><span class="material-icons">check_circle</span>5 bolsas de 454 g</li>
+                    <li><span class="material-icons">check_circle</span>Molienda a la medida</li>
+                    <li><span class="material-icons">check_circle</span>Factura y soporte prioritario</li>
+                </ul>
+                <button class="btn btn-outlined" data-plan="Oficina">Elegir plan</button>
+                </article>
+            </div>
+            </div>
+        </section>
+
+        <!-- ========== BENEFICIOS ========== -->
+        <section id="beneficios">
+            <div class="contenedor">
+            <h2 class="titulo-seccion">¿Por qué elegirnos?</h2>
+            <p class="subtitulo-seccion">Más que café, una experiencia de origen.</p>
+
+            <div class="beneficios">
+                <div class="beneficio">
+                <div class="icono"><span class="material-icons">local_shipping</span></div>
+                <h3>Envío nacional</h3>
+                <p>Llegamos a los 17 departamentos en 48 horas.</p>
+                </div>
+                <div class="beneficio">
+                <div class="icono"><span class="material-icons">eco</span></div>
+                <h3>Cultivo sostenible</h3>
+                <p>Trabajamos con cooperativas que cultivan bajo sombra.</p>
+                </div>
+                <div class="beneficio">
+                <div class="icono"><span class="material-icons">schedule</span></div>
+                <h3>Tostado semanal</h3>
+                <p>Nunca recibirás café con más de 7 días de tostado.</p>
+                </div>
+                <div class="beneficio">
+                <div class="icono"><span class="material-icons">verified</span></div>
+                <h3>Garantía de sabor</h3>
+                <p>Si no te gusta, te devolvemos tu dinero.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ========== TESTIMONIOS ========== -->
+        <section class="fondo-alt">
+            <div class="contenedor">
+            <h2 class="titulo-seccion">Lo que dicen nuestros clientes</h2>
+            <p class="subtitulo-seccion">Opiniones de ejemplo para la maqueta.</p>
+
+            <div class="testimonios">
+                <article class="card testimonio">
+                <div class="estrellas"><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span></div>
+                <p>"El café llega súper fresco y el aroma al abrir la bolsa es increíble. Ya no compro en el supermercado."</p>
+                <div class="autor"><div class="avatar">ML</div><div><strong>María L.</strong><small>León</small></div></div>
+                </article>
+                <article class="card testimonio">
+                <div class="estrellas"><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></div>
+                <p>"Tenemos el plan Oficina y todo el equipo está feliz. El servicio al cliente responde muy rápido."</p>
+                <div class="autor"><div class="avatar">CR</div><div><strong>Carlos R.</strong><small>Managua</small></div></div>
+                </article>
+                <article class="card testimonio">
+                <div class="estrellas"><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span></div>
+                <p>"Me encanta el kit de degustación, es perfecto para regalar y conocer distintas regiones."</p>
+                <div class="autor"><div class="avatar">AG</div><div><strong>Ana G.</strong><small>Estelí</small></div></div>
+                </article>
+            </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACTO ========== -->
+        <section id="contacto">
+            <div class="contenedor contacto">
+            <div>
+                <h2 class="titulo-seccion">¿Tienes preguntas?</h2>
+                <p class="subtitulo-seccion">Escríbenos y te responderemos en menos de 24 horas.</p>
+                <ul class="lista-contacto">
+                <li><span class="material-icons">phone</span>+505 0000 0000</li>
+                <li><span class="material-icons">mail</span>contacto@aromanica.com</li>
+                <li><span class="material-icons">place</span>Managua, Nicaragua</li>
+                <li><span class="material-icons">schedule</span>Lunes a sábado, 8:00 a.m. – 6:00 p.m.</li>
+                </ul>
+            </div>
+
+            <form class="card form-contacto" id="formContacto" data-md="Text Fields (outlined)">
+                <h3>Envíanos un mensaje</h3>
+                <div class="text-field">
+                <input type="text" id="nombre" placeholder=" " required>
+                <label for="nombre">Nombre completo</label>
+                </div>
+                <div class="text-field">
+                <input type="email" id="correo" placeholder=" " required>
+                <label for="correo">Correo electrónico</label>
+                </div>
+                <div class="text-field">
+                <textarea id="mensaje" placeholder=" " required></textarea>
+                <label for="mensaje">Mensaje</label>
+                </div>
+                <button type="submit" class="btn btn-primary"><span class="material-icons">send</span>Enviar</button>
+            </form>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer data-md="Footer">
+            <div class="contenedor footer-grid">
+            <div>
+                <a href="#inicio" class="logo"><span class="material-icons">coffee</span>Aroma Nica</a>
+                <p>Café de especialidad de las montañas de Nicaragua, tostado con cariño y entregado a tu puerta.</p>
+            </div>
+            <div>
+                <h4>Tienda</h4>
+                <a href="#productos">Productos</a>
+                <a href="#planes">Planes</a>
+                <a href="#contacto">Envíos</a>
+            </div>
+            <div>
+                <h4>Síguenos</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">WhatsApp</a>
+            </div>
+            </div>
+            <p class="copy">© 2026 Aroma Nica · Maqueta académica – Desarrollo Web</p>
+        </footer>
+
+        <!-- ========== FAB, SNACKBAR E INTERRUPTOR ========== -->
+        <button class="fab" id="fab" data-md="FAB" aria-label="Soporte">
+            <span class="material-icons">support_agent</span>
+        </button>
+
+        <!--<div class="snackbar" id="snackbar" role="status">
+            <span id="snackTexto"></span>
+            <button id="snackAccion">Cerrar</button>
+        </div> -->
+    </body>
+</html>
