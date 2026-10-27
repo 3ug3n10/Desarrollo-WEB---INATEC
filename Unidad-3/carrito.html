@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito - Aroma Nica</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <!-- ========== TOP APP BAR ========== -->
+        <header class="app-bar">
+            <div class="contenedor">
+                <button class="icon-btn btn-menu" id="btnMenu" aria-label="Abrir menú">
+                    <span class="material-icons">menu</span>
+                </button>
+
+                <a href="index.html#inicio" class="logo"><span class="material-icons">coffee</span>Aroma Nica</a>
+                <nav class="nav">
+                    <a href="index.html#productos">Productos</a>
+                    <a href="index.html#planes">Planes</a>
+                    <a href="index.html#beneficios">Beneficios</a>
+                    <a href="index.html#contacto">Contacto</a>
+                </nav>
+
+                <a href="carrito.html" class="icon-btn carrito" aria-label="Ver carrito de compras">
+                    <span class="material-icons">shopping_cart</span>
+                    <span class="badge" id="badge" hidden>0</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- ========== NAVIGATION DRAWER ========== -->
+        <div class="scrim" id="scrim"></div>
+        <aside class="drawer" id="drawer">
+            <h3>Aroma Nica</h3>
+            <a href="index.html#productos"><span class="material-icons">storefront</span>Productos</a>
+            <a href="index.html#planes"><span class="material-icons">card_membership</span>Planes</a>
+            <a href="index.html#beneficios"><span class="material-icons">star</span>Beneficios</a>
+            <a href="index.html#contacto"><span class="material-icons">mail</span>Contacto</a>
+        </aside>
+
+        <!-- ========== CARRITO ========== -->
+        <main class="pagina-carrito">
+            <div class="contenedor">
+                <h1 class="titulo-seccion">Tu carrito</h1>
+                <p class="subtitulo-seccion">Revisa los productos que seleccionaste.</p>
+
+                <!-- Se rellena desde carrito.js -->
+                <div id="carritoContenido"></div>
+            </div>
+        </main>
+
+        <!-- ========== FOOTER ========== -->
+        <footer>
+            <p class="copy" style="border-top:none;margin-top:0;padding-top:0;">
+                © 2026 Aroma Nica · Maqueta académica – Desarrollo Web - EUGENIO BLANDON GARCIA
+            </p>
+        </footer>
+
+        <div class="snackbar" id="snackbar" role="status">
+            <span id="snackTexto"></span>
+            <button id="snackAccion">Cerrar</button>
+        </div>
+
+        <script src="common.js"></script>
+        <script src="carrito.js"></script>
+    </body>
+</html>
