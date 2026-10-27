@@ -17,7 +17,7 @@
          <header class="app-bar" data-md="Top App Bar">
             <div class="contenedor">
                 <button class="icon-btn btn-menu" id="btnMenu" aria-label="Abrir menú">
-                    <span class="mateial-icons">menu</span>
+                    <span class="material-icons">menu</span>
                 </button>
 
                 <!-- Pestañas de navegación -->
@@ -29,10 +29,10 @@
                     <a href="#contacto">Contacto</a>
                 </nav>
 
-                <button class="icon-btn carrito" aria-label="Carrito de compras">
+                <a href="carrito.html" class="icon-btn carrito" aria-label="Ver carrito de compras">
                     <span class="material-icons">shopping_cart</span>
                     <span class="badge" id="badge" hidden>0</span>
-                </button>
+                </a>
             </div>
          </header>
 
@@ -241,13 +241,17 @@
         </footer>
 
         <!-- ========== FAB, SNACKBAR E INTERRUPTOR ========== -->
-        <button class="fab" id="fab" data-md="FAB" aria-label="Soporte">
+                <button class="fab" id="fab" data-md="FAB" aria-label="Soporte">
             <span class="material-icons">support_agent</span>
         </button>
 
-        <!--<div class="snackbar" id="snackbar" role="status">
+        <div class="snackbar" id="snackbar" role="status">
             <span id="snackTexto"></span>
             <button id="snackAccion">Cerrar</button>
-        </div> -->
+        </div>
+
+        <!-- Scripts al final: el DOM ya existe. El orden importa: common.js primero -->
+        <script src="common.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
