@@ -1,333 +1,395 @@
-/* ===================================================
-       Paleta y elevaciones (inspiradas en Material Design)
-=================================================== */
-    :root {
-      --primary: #6D4C41;
-      --primary-dark: #4B2C20;
-      --primary-light: #A1887F;
-      --secondary: #FFB300;
-      --surface: #FFFFFF;
-      --background: #FAF6F2;
-      --background-alt: #F3EAE4;
-      --on-primary: #FFFFFF;
-      --on-surface: #1F1B16;
-      --muted: #6B5F57;
-      --outline: #CBBFB6;
+/* Sitios WEB utilizados para la realización de este archivo CSS
+    -> https://developer.mozilla.org/es/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties
+    -> https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/box-shadow
+    -> https://m3.material.io/components
+    -> https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Introduction
+    -> https://www.aluracursos.com/blog/css-grid-guia-de-propiedades-grid-container-y-grid-item
+    -> https://developer.mozilla.org/es/docs/Web/CSS/transform
+    -> https://claude.ia/new
 
-      --elev-1: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
-      --elev-2: 0 3px 6px rgba(0,0,0,.15), 0 2px 4px rgba(0,0,0,.12);
-      --elev-3: 0 10px 20px rgba(0,0,0,.15), 0 3px 6px rgba(0,0,0,.10);
-      --radius: 12px;
-    }
+*/
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Roboto, Arial, sans-serif;
-      background: var(--background);
-      color: var(--on-surface);
-      line-height: 1.5;
-    }
-    .material-icons { vertical-align: middle; }
-    .contenedor { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-    section { padding: 64px 0; }
-    .fondo-alt { background: var(--background-alt); }
-    .titulo-seccion { font-size: 32px; font-weight: 500; text-align: center; margin-bottom: 8px; }
-    .subtitulo-seccion { text-align: center; color: var(--muted); margin-bottom: 40px; }
+/*
+Para este proyecto implementé un Sistema de Diseño centralizado utilizando variables de CSS (:root). 
+La arquitectura de este sistema sigue la metodología y nomenclatura técnica de Material Design, 
+lo que garantiza una consistencia visual rigurosa en toda la interfaz, facilita enormemente el mantenimiento 
+del código y asegura una experiencia de usuario (UX) sumamente limpia.
 
-    /* ---------- Top App Bar ---------- */
-    .app-bar {
-      position: sticky; top: 0; z-index: 20;
-      background: var(--primary); color: var(--on-primary);
-      box-shadow: var(--elev-2);
-    }
-    .app-bar .contenedor { height: 64px; display: flex; align-items: center; gap: 12px; }
-    .icon-btn {
-      background: none; border: none; color: inherit;
-      width: 48px; height: 48px; border-radius: 50%;
-      cursor: pointer; display: grid; place-items: center; position: relative;
-    }
-    .icon-btn:hover { background: rgba(255,255,255,.12); }
-    .logo {
-      font-size: 22px; font-weight: 500; color: inherit; text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav { margin-left: auto; display: flex; gap: 4px; }
-    .nav a {
-      color: var(--on-primary); text-decoration: none;
-      padding: 8px 14px; border-radius: 20px;
-      font-size: 14px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase;
-    }
-    .nav a:hover { background: rgba(255,255,255,.12); }
-    .carrito { margin-left: 8px; }
-    .badge {
-      position: absolute; top: 6px; right: 6px;
-      min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px;
-      background: var(--secondary); color: var(--on-surface);
-      font-size: 11px; font-weight: 700; display: grid; place-items: center;
-    }
-    .badge[hidden] { display: none; }
-    .btn-menu { display: none; }
+La estructura de este archivo CSS se diseñó bajo un enfoque compacto y orientado a componentes, 
+reduciendo las líneas de código verticales innecesarias. En lugar de expandir cada propiedad de forma individual, 
+se agruparon las declaraciones de elementos cohesivos en una sola línea. Esto no solo disminuye el peso del archivo, 
+sino que mejora la legibilidad horizontal y facilita el mantenimiento, permitiendo entender la estructura de cada 
+componente (como la .app-bar o el .icon-btn) de un solo vistazo.
 
-    /* ---------- Navigation Drawer ---------- */
-    .scrim {
-      position: fixed; inset: 0; z-index: 30;
-      background: rgba(0,0,0,.4); opacity: 0; pointer-events: none; transition: opacity .3s;
-    }
-    .scrim.visible { opacity: 1; pointer-events: auto; }
-    .drawer {
-      position: fixed; top: 0; left: 0; bottom: 0; z-index: 31;
-      width: 280px; padding: 16px 12px;
-      background: var(--surface); box-shadow: var(--elev-3);
-      transform: translateX(-100%); transition: transform .3s;
-    }
-    .drawer.abierto { transform: none; }
-    .drawer h3 { padding: 8px 16px 16px; color: var(--primary); font-weight: 500; }
-    .drawer a {
-      display: flex; align-items: center; gap: 16px;
-      padding: 12px 16px; border-radius: 28px;
-      color: var(--on-surface); text-decoration: none; font-weight: 500;
-    }
-    .drawer a:hover { background: var(--background-alt); }
+En caso que se requiera y está utilizando Visual Studio Code, puede formatear el código utilizando
+la extension Prettier, fue previamente probado y funciona bien en este código.
 
-    /* ---------- Botones ---------- */
-    .btn {
-      font-family: inherit; font-size: 14px; font-weight: 500;
-      letter-spacing: .5px; text-transform: uppercase; text-decoration: none;
-      padding: 10px 24px; border-radius: 20px; border: none; cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      transition: box-shadow .2s, background .2s;
-    }
-    .btn-contained { background: var(--secondary); color: var(--on-surface); box-shadow: var(--elev-1); }
-    .btn-contained:hover { box-shadow: var(--elev-2); }
-    .btn-primary { background: var(--primary); color: var(--on-primary); box-shadow: var(--elev-1); }
-    .btn-primary:hover { background: var(--primary-dark); box-shadow: var(--elev-2); }
-    .btn-outlined { background: transparent; border: 1px solid currentColor; color: inherit; }
-    .btn-outlined:hover { background: rgba(0,0,0,.05); }
+Se utilizo CLAUDE CODE para explicación de conceptos he implementación en esta pagina web, también fue el encargado
+de realizar inspecciones de calidad y sugerencias de mejora.
+*/
 
-    /* ---------- Hero ---------- */
-    .hero {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: #fff; padding: 80px 0;
-    }
-    .hero .contenedor { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
-    .etiqueta {
-      display: inline-block; margin-bottom: 16px; padding: 6px 14px;
-      background: rgba(255,255,255,.15); border-radius: 16px; font-size: 13px;
-    }
-    .hero h1 { font-size: 48px; line-height: 1.1; font-weight: 700; margin-bottom: 16px; }
-    .hero p { font-size: 18px; opacity: .9; margin-bottom: 32px; }
-    .acciones { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-imagen {
-      aspect-ratio: 1; border-radius: 24px; box-shadow: var(--elev-3);
-      background: radial-gradient(circle at 30% 30%, #D7A86E, #8D6E63 60%, #5D4037);
-      display: grid; place-items: center;
-    }
-    .hero-imagen .material-icons { font-size: 160px; color: rgba(255,255,255,.9); }
+/* ==========================================================================
+   SISTEMA DE DISEÑO Y PROPIEDADES PERSONALIZADAS (VARIABLES CSS)
+   Metodología: Basado en lineamientos de Material Design
+   Objetivo: Garantizar consistencia visual, escalabilidad y mantenibilidad.
+   ========================================================================== 
+*/
 
-    /* ---------- Chips ---------- */
-    .chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
-    .chip {
-      font-family: inherit; font-size: 14px; color: var(--on-surface); cursor: pointer;
-      padding: 6px 16px; border-radius: 8px;
-      border: 1px solid var(--outline); background: var(--surface);
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-    .chip .material-icons { font-size: 18px; display: none; }
-    .chip.activo { background: #F3E2D7; border-color: #F3E2D7; color: var(--primary-dark); font-weight: 500; }
-    .chip.activo .material-icons { display: inline; }
+:root {
+/* --- PALETA DE COLORES PRINCIPAL ---
+    Define la identidad visual de la marca (Tonos tierra/cálidos).
+    Incluye variantes claras y oscuras para estados interactivos (como :hover). */
+--primary: #6D4C41;
+--primary-dark: #4B2C20;
+--primary-light: #A1887F;
 
-    /* ---------- Cards ---------- */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
-    .card {
-      position: relative; overflow: hidden;
-      background: var(--surface); border-radius: var(--radius); box-shadow: var(--elev-1);
-      display: flex; flex-direction: column;
-      transition: box-shadow .2s, transform .2s;
-    }
-    .card:hover { box-shadow: var(--elev-3); transform: translateY(-2px); }
-    .card-media { height: 160px; display: grid; place-items: center; color: #fff; }
-    .card-media .material-icons { font-size: 64px; }
-    .card-body { padding: 16px; flex: 1; }
-    .card-body h3 { font-size: 18px; font-weight: 500; }
-    .card-body p { color: var(--muted); font-size: 14px; margin-top: 4px; }
-    .card-acciones { padding: 0 16px 16px; display: flex; justify-content: space-between; align-items: center; }
-    .precio { font-size: 20px; font-weight: 700; color: var(--primary); }
+/* --- COLOR ENFÁTICO O DE ACENTO ---
+    Tono ámbar de alto contraste reservado exclusivamente para 
+    Llamados a la Acción (CTA), botones importantes, enlaces o alertas. */
+--secondary: #FFB300;
 
-    /* ---------- Planes ---------- */
-    .planes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .plan { padding: 40px 24px 24px; text-align: center; align-items: center; }
-    .plan.destacado { border: 2px solid var(--secondary); }
-    .cinta {
-      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-      background: var(--secondary); font-size: 11px; font-weight: 700; letter-spacing: 1px;
-      padding: 2px 12px; border-radius: 12px;
-    }
-    .plan-icono { font-size: 40px; color: var(--primary); margin-bottom: 8px; }
-    .plan h3 { font-size: 20px; font-weight: 500; }
-    .plan-precio { font-size: 36px; font-weight: 700; color: var(--primary); }
-    .plan-precio span { font-size: 16px; font-weight: 400; color: var(--muted); }
-    .plan ul { list-style: none; text-align: left; margin: 20px 0 28px; flex: 1; }
-    .plan li { display: flex; gap: 8px; align-items: center; padding: 6px 0; font-size: 15px; }
-    .plan li .material-icons { color: #2E7D32; font-size: 20px; }
-    .plan .btn { width: 100%; }
-    .plan .btn-outlined { color: var(--primary); }
+/* --- ESTRUCTURA, CAPAS Y FONDOS ---
+    --surface: Color base para contenedores elevados (tarjetas, modales).
+    --background: Fondo general cálido para reducir la fatiga visual.
+    --background-alt: Fondo secundario para crear contraste entre secciones. */
+--surface: #FFFFFF;
+--background: #FAF6F2;
+--background-alt: #F3EAE4;
 
-    /* ---------- Beneficios ---------- */
-    .beneficios { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-    .beneficio .icono {
-      width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%;
-      background: #F3E2D7; color: var(--primary); display: grid; place-items: center;
-    }
-    .beneficio h3 { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
-    .beneficio p { color: var(--muted); font-size: 14px; }
+/* --- CONTRASTE Y ACCESIBILIDAD (Nomenclatura "On-X") ---
+    Garantiza la legibilidad del texto según los fondos establecidos.
+    --on-primary: Texto claro sobre el color primario oscuro.
+    --on-surface: Texto oscuro de alta prioridad sobre superficies blancas.
+    --muted: Texto secundario o de menor importancia.
+    --outline: Color para bordes y separadores sutiles. */
+--on-primary: #FFFFFF;
+--on-surface: #1F1B16;
+--muted: #6B5F57;
+--outline: #CBBFB6;
 
-    /* ---------- Testimonios ---------- */
-    .testimonios { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .testimonio { padding: 24px; }
-    .estrellas { color: var(--secondary); margin-bottom: 8px; }
-    .estrellas .material-icons { font-size: 20px; }
-    .testimonio p { font-style: italic; color: var(--muted); }
-    .autor { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
-    .avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--primary-light); color: #fff; font-weight: 500;
-      display: grid; place-items: center;
-    }
-    .autor small { color: var(--muted); display: block; }
+/* --- SISTEMA DE ELEVACIÓN (Profundidad Visual) ---
+    Sombras multi-capa que simulan la distancia de los objetos sobre el plano Z.
+    --elev-1: Estado de reposo para componentes fijos (ej. tarjetas).
+    --elev-2: Estado activo o interactivo (ej. hover sobre tarjetas o botones).
+    --elev-3: Elementos flotantes prioritarios (ej. menús desplegables o modales). */
+--elev-1: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+--elev-2: 0 3px 6px rgba(0,0,0,.15), 0 2px 4px rgba(0,0,0,.12);
+--elev-3: 0 10px 20px rgba(0,0,0,.15), 0 3px 6px rgba(0,0,0,.10);
 
-    /* ---------- Contacto y Text Fields ---------- */
-    .contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .contacto .titulo-seccion, .contacto .subtitulo-seccion { text-align: left; }
-    .lista-contacto { list-style: none; }
-    .lista-contacto li { display: flex; gap: 16px; align-items: center; padding: 10px 0; }
-    .lista-contacto .material-icons { color: var(--primary); }
-    .form-contacto { padding: 28px 24px; }
-    .form-contacto h3 { font-weight: 500; margin-bottom: 24px; }
-    .text-field { position: relative; margin-bottom: 20px; }
-    .text-field input, .text-field textarea {
-      width: 100%; padding: 16px; font: inherit; color: inherit;
-      border: 1px solid var(--outline); border-radius: 4px; background: transparent; outline: none;
-    }
-    .text-field textarea { resize: vertical; min-height: 110px; }
-    .text-field label {
-      position: absolute; left: 12px; top: 16px; padding: 0 4px;
-      background: var(--surface); color: var(--muted);
-      pointer-events: none; transition: all .15s;
-    }
-    .text-field input:focus, .text-field textarea:focus { border: 2px solid var(--primary); padding: 15px; }
-    .text-field input:focus + label, .text-field textarea:focus + label,
-    .text-field input:not(:placeholder-shown) + label,
-    .text-field textarea:not(:placeholder-shown) + label { top: -9px; font-size: 12px; }
-    .text-field input:focus + label, .text-field textarea:focus + label { color: var(--primary); }
+/* --- GEOMETRÍA GLOBAL ---
+    Radio de curvatura unificado para botones, tarjetas y campos de formulario,
+    otorgando una estética moderna, suave y cohesiva a toda la interfaz. */
+--radius: 12px;
+}
 
-    /* ---------- Footer ---------- */
-    footer { background: #2B1D16; color: #D7CCC8; padding: 48px 0 24px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
-    footer h4 { color: #fff; font-weight: 500; margin-bottom: 8px; }
-    footer a { color: #D7CCC8; text-decoration: none; display: block; margin: 6px 0; }
-    footer a:hover { color: var(--secondary); }
-    footer .logo { color: #fff; margin-bottom: 8px; }
-    .copy { border-top: 1px solid rgba(255,255,255,.1); margin-top: 32px; padding-top: 16px; font-size: 13px; text-align: center; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--on-surface);
+  line-height: 1.5;
+}
+.material-icons { vertical-align: middle; }
+.contenedor { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+section { padding: 64px 0; }
+.fondo-alt { background: var(--background-alt); }
+.titulo-seccion { font-size: 32px; font-weight: 500; text-align: center; margin-bottom: 8px; }
+.subtitulo-seccion { text-align: center; color: var(--muted); margin-bottom: 40px; }
 
-    /* ---------- FAB ---------- */
-    .fab {
-      position: fixed; right: 24px; bottom: 24px; z-index: 15;
-      width: 56px; height: 56px; border-radius: 16px; border: none; cursor: pointer;
-      background: var(--secondary); color: var(--on-surface); box-shadow: var(--elev-3);
-      display: grid; place-items: center;
-    }
+/* ---------- Top App Bar ---------- */
+.app-bar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--primary); color: var(--on-primary);
+  box-shadow: var(--elev-2);
+}
+.app-bar .contenedor { height: 64px; display: flex; align-items: center; gap: 12px; }
+.icon-btn {
+  background: none; border: none; color: inherit;
+  width: 48px; height: 48px; border-radius: 50%;
+  cursor: pointer; display: grid; place-items: center; position: relative;
+}
+.icon-btn:hover { background: rgba(255,255,255,.12); }
+.logo {
+  font-size: 22px; font-weight: 500; color: inherit; text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav { margin-left: auto; display: flex; gap: 4px; }
+.nav a {
+  color: var(--on-primary); text-decoration: none;
+  padding: 8px 14px; border-radius: 20px;
+  font-size: 14px; font-weight: 500; letter-spacing: .5px; text-transform: uppercase;
+}
+.nav a:hover { background: rgba(255,255,255,.12); }
+.carrito { margin-left: 8px; }
+.badge {
+  position: absolute; top: 6px; right: 6px;
+  min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px;
+  background: var(--secondary); color: var(--on-surface);
+  font-size: 11px; font-weight: 700; display: grid; place-items: center;
+}
+.badge[hidden] { display: none; }
+.btn-menu { display: none; }
 
-    /* ---------- Snackbar ---------- */
-    .snackbar {
-      position: fixed; left: 50%; bottom: 24px; z-index: 40;
-      transform: translate(-50%, 150px); transition: transform .3s;
-      min-width: 280px; max-width: calc(100% - 32px);
-      background: #322F2D; color: #fff; padding: 14px 16px 14px 20px; border-radius: 4px;
-      box-shadow: var(--elev-3); display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-    .snackbar.visible { transform: translate(-50%, 0); }
-    .snackbar button {
-      background: none; border: none; cursor: pointer;
-      color: var(--secondary); font-family: inherit; font-weight: 500; text-transform: uppercase;
-    }
+/* ---------- Navigation Drawer ---------- */
+.scrim {
+  position: fixed; inset: 0; z-index: 30;
+  background: rgba(0,0,0,.4); opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.scrim.visible { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 31;
+  width: 280px; padding: 16px 12px;
+  background: var(--surface); box-shadow: var(--elev-3);
+  transform: translateX(-100%); transition: transform .3s;
+}
+.drawer.abierto { transform: none; }
+.drawer h3 { padding: 8px 16px 16px; color: var(--primary); font-weight: 500; }
+.drawer a {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 16px; border-radius: 28px;
+  color: var(--on-surface); text-decoration: none; font-weight: 500;
+}
+.drawer a:hover { background: var(--background-alt); }
 
-    /* ---------- Enlaces con apariencia de icon-btn ---------- */
-    a.icon-btn { text-decoration: none; }
+/* ---------- Botones ---------- */
+.btn {
+  font-family: inherit; font-size: 14px; font-weight: 500;
+  letter-spacing: .5px; text-transform: uppercase; text-decoration: none;
+  padding: 10px 24px; border-radius: 20px; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  transition: box-shadow .2s, background .2s;
+}
+.btn-contained { background: var(--secondary); color: var(--on-surface); box-shadow: var(--elev-1); }
+.btn-contained:hover { box-shadow: var(--elev-2); }
+.btn-primary { background: var(--primary); color: var(--on-primary); box-shadow: var(--elev-1); }
+.btn-primary:hover { background: var(--primary-dark); box-shadow: var(--elev-2); }
+.btn-outlined { background: transparent; border: 1px solid currentColor; color: inherit; }
+.btn-outlined:hover { background: rgba(0,0,0,.05); }
 
-    /* ---------- Vista Carrito ---------- */
-    .pagina-carrito { padding: 48px 0 80px; min-height: 70vh; }
-    .carrito-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
-    .carrito-lista { display: flex; flex-direction: column; gap: 16px; }
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff; padding: 80px 0;
+}
+.hero .contenedor { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.etiqueta {
+  display: inline-block; margin-bottom: 16px; padding: 6px 14px;
+  background: rgba(255,255,255,.15); border-radius: 16px; font-size: 13px;
+}
+.hero h1 { font-size: 48px; line-height: 1.1; font-weight: 700; margin-bottom: 16px; }
+.hero p { font-size: 18px; opacity: .9; margin-bottom: 32px; }
+.acciones { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-imagen {
+  aspect-ratio: 1; border-radius: 24px; box-shadow: var(--elev-3);
+  background: radial-gradient(circle at 30% 30%, #D7A86E, #8D6E63 60%, #5D4037);
+  display: grid; place-items: center;
+}
+.hero-imagen .material-icons { font-size: 160px; color: rgba(255,255,255,.9); }
 
-    .item-carrito {
-      flex-direction: row; align-items: center; gap: 16px; padding: 12px 16px 12px 12px;
-    }
-    .item-media {
-      width: 72px; height: 72px; border-radius: 8px; flex-shrink: 0;
-      display: grid; place-items: center; color: #fff;
-    }
-    .item-media .material-icons { font-size: 36px; }
-    .item-info { flex: 1; min-width: 0; }
-    .item-info h3 { font-size: 16px; font-weight: 500; }
-    .item-info p { color: var(--muted); font-size: 14px; }
+/* ---------- Chips ---------- */
+.chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+.chip {
+  font-family: inherit; font-size: 14px; color: var(--on-surface); cursor: pointer;
+  padding: 6px 16px; border-radius: 8px;
+  border: 1px solid var(--outline); background: var(--surface);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.chip .material-icons { font-size: 18px; display: none; }
+.chip.activo { background: #F3E2D7; border-color: #F3E2D7; color: var(--primary-dark); font-weight: 500; }
+.chip.activo .material-icons { display: inline; }
 
-    .cantidad { display: flex; align-items: center; gap: 4px; }
-    .cantidad-valor { min-width: 28px; text-align: center; font-weight: 500; }
-    .icon-btn-sm {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--outline);
-      background: var(--surface); color: var(--primary); cursor: pointer;
-      display: grid; place-items: center;
-    }
-    .icon-btn-sm:hover { background: var(--background-alt); }
-    .icon-btn-sm .material-icons { font-size: 20px; }
+/* ---------- Cards ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+.card {
+  position: relative; overflow: hidden;
+  background: var(--surface); border-radius: var(--radius); box-shadow: var(--elev-1);
+  display: flex; flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: var(--elev-3); transform: translateY(-2px); }
+.card-media { height: 160px; display: grid; place-items: center; color: #fff; }
+.card-media .material-icons { font-size: 64px; }
+.card-body { padding: 16px; flex: 1; }
+.card-body h3 { font-size: 18px; font-weight: 500; }
+.card-body p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.card-acciones { padding: 0 16px 16px; display: flex; justify-content: space-between; align-items: center; }
+.precio { font-size: 20px; font-weight: 700; color: var(--primary); }
 
-    .item-subtotal { min-width: 96px; text-align: right; font-weight: 700; color: var(--primary); }
+/* ---------- Planes ---------- */
+.planes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.plan { padding: 40px 24px 24px; text-align: center; align-items: center; }
+.plan.destacado { border: 2px solid var(--secondary); }
+.cinta {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  background: var(--secondary); font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 2px 12px; border-radius: 12px;
+}
+.plan-icono { font-size: 40px; color: var(--primary); margin-bottom: 8px; }
+.plan h3 { font-size: 20px; font-weight: 500; }
+.plan-precio { font-size: 36px; font-weight: 700; color: var(--primary); }
+.plan-precio span { font-size: 16px; font-weight: 400; color: var(--muted); }
+.plan ul { list-style: none; text-align: left; margin: 20px 0 28px; flex: 1; }
+.plan li { display: flex; gap: 8px; align-items: center; padding: 6px 0; font-size: 15px; }
+.plan li .material-icons { color: #2E7D32; font-size: 20px; }
+.plan .btn { width: 100%; }
+.plan .btn-outlined { color: var(--primary); }
 
-    .resumen { padding: 24px; gap: 12px; position: sticky; top: 88px; }
-    .resumen h3 { font-weight: 500; margin-bottom: 4px; }
-    .resumen-fila { display: flex; justify-content: space-between; color: var(--muted); }
-    .resumen-fila.total {
-      color: var(--on-surface); font-size: 20px; font-weight: 700;
-      border-top: 1px solid var(--outline); padding-top: 12px; margin: 4px 0 8px;
-    }
-    .resumen .btn-outlined { color: var(--primary); }
-    .seguir { text-align: center; color: var(--primary); text-decoration: none; font-weight: 500; margin-top: 4px; }
-    .seguir:hover { text-decoration: underline; }
+/* ---------- Beneficios ---------- */
+.beneficios { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.beneficio .icono {
+  width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%;
+  background: #F3E2D7; color: var(--primary); display: grid; place-items: center;
+}
+.beneficio h3 { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+.beneficio p { color: var(--muted); font-size: 14px; }
 
-    .carrito-vacio { padding: 48px 24px; text-align: center; align-items: center; max-width: 480px; margin: 0 auto; gap: 8px; }
-    .carrito-vacio .material-icons { font-size: 72px; color: var(--primary-light); }
-    .carrito-vacio p { color: var(--muted); margin-bottom: 16px; }
+/* ---------- Testimonios ---------- */
+.testimonios { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.testimonio { padding: 24px; }
+.estrellas { color: var(--secondary); margin-bottom: 8px; }
+.estrellas .material-icons { font-size: 20px; }
+.testimonio p { font-style: italic; color: var(--muted); }
+.autor { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary-light); color: #fff; font-weight: 500;
+  display: grid; place-items: center;
+}
+.autor small { color: var(--muted); display: block; }
 
-    @media (max-width: 900px) {
-      .carrito-layout { grid-template-columns: 1fr; }
-      .resumen { position: static; }
-    }
-    @media (max-width: 600px) {
-      .item-carrito { flex-wrap: wrap; }
-      .item-info { flex-basis: calc(100% - 100px); }
-      .item-subtotal { text-align: left; flex: 1; }
-    }
+/* ---------- Contacto y Text Fields ---------- */
+.contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contacto .titulo-seccion, .contacto .subtitulo-seccion { text-align: left; }
+.lista-contacto { list-style: none; }
+.lista-contacto li { display: flex; gap: 16px; align-items: center; padding: 10px 0; }
+.lista-contacto .material-icons { color: var(--primary); }
+.form-contacto { padding: 28px 24px; }
+.form-contacto h3 { font-weight: 500; margin-bottom: 24px; }
+.text-field { position: relative; margin-bottom: 20px; }
+.text-field input, .text-field textarea {
+  width: 100%; padding: 16px; font: inherit; color: inherit;
+  border: 1px solid var(--outline); border-radius: 4px; background: transparent; outline: none;
+}
+.text-field textarea { resize: vertical; min-height: 110px; }
+.text-field label {
+  position: absolute; left: 12px; top: 16px; padding: 0 4px;
+  background: var(--surface); color: var(--muted);
+  pointer-events: none; transition: all .15s;
+}
+.text-field input:focus, .text-field textarea:focus { border: 2px solid var(--primary); padding: 15px; }
+.text-field input:focus + label, .text-field textarea:focus + label,
+.text-field input:not(:placeholder-shown) + label,
+.text-field textarea:not(:placeholder-shown) + label { top: -9px; font-size: 12px; }
+.text-field input:focus + label, .text-field textarea:focus + label { color: var(--primary); }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .nav { display: none; }
-      .btn-menu { display: grid; }
-      .carrito { margin-left: auto; }
-      .hero { padding: 56px 0; }
-      .hero .contenedor { grid-template-columns: 1fr; gap: 32px; }
-      .hero h1 { font-size: 36px; }
-      .hero-imagen { max-width: 280px; width: 100%; margin: 0 auto; }
-      .hero-imagen .material-icons { font-size: 120px; }
-      .planes { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-      .beneficios { grid-template-columns: repeat(2, 1fr); }
-      .contacto { grid-template-columns: 1fr; gap: 32px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid > :first-child { grid-column: 1 / -1; }
-    }
-    @media (max-width: 500px) {
-      section { padding: 48px 0; }
-      .titulo-seccion { font-size: 26px; }
-      .beneficios { grid-template-columns: 1fr; }
-      .snackbar { bottom: 96px; }
-    }
+/* ---------- Footer ---------- */
+footer { background: #2B1D16; color: #D7CCC8; padding: 48px 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+footer h4 { color: #fff; font-weight: 500; margin-bottom: 8px; }
+footer a { color: #D7CCC8; text-decoration: none; display: block; margin: 6px 0; }
+footer a:hover { color: var(--secondary); }
+footer .logo { color: #fff; margin-bottom: 8px; }
+.copy { border-top: 1px solid rgba(255,255,255,.1); margin-top: 32px; padding-top: 16px; font-size: 13px; text-align: center; }
+
+/* ---------- FAB ---------- */
+.fab {
+  position: fixed; right: 24px; bottom: 24px; z-index: 15;
+  width: 56px; height: 56px; border-radius: 16px; border: none; cursor: pointer;
+  background: var(--secondary); color: var(--on-surface); box-shadow: var(--elev-3);
+  display: grid; place-items: center;
+}
+
+/* ---------- Snackbar ---------- */
+.snackbar {
+  position: fixed; left: 50%; bottom: 24px; z-index: 40;
+  transform: translate(-50%, 150px); transition: transform .3s;
+  min-width: 280px; max-width: calc(100% - 32px);
+  background: #322F2D; color: #fff; padding: 14px 16px 14px 20px; border-radius: 4px;
+  box-shadow: var(--elev-3); display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.snackbar.visible { transform: translate(-50%, 0); }
+.snackbar button {
+  background: none; border: none; cursor: pointer;
+  color: var(--secondary); font-family: inherit; font-weight: 500; text-transform: uppercase;
+}
+
+/* ---------- Enlaces con apariencia de icon-btn ---------- */
+a.icon-btn { text-decoration: none; }
+
+/* ---------- Vista Carrito ---------- */
+.pagina-carrito { padding: 48px 0 80px; min-height: 70vh; }
+.carrito-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
+.carrito-lista { display: flex; flex-direction: column; gap: 16px; }
+
+.item-carrito {
+  flex-direction: row; align-items: center; gap: 16px; padding: 12px 16px 12px 12px;
+}
+.item-media {
+  width: 72px; height: 72px; border-radius: 8px; flex-shrink: 0;
+  display: grid; place-items: center; color: #fff;
+}
+.item-media .material-icons { font-size: 36px; }
+.item-info { flex: 1; min-width: 0; }
+.item-info h3 { font-size: 16px; font-weight: 500; }
+.item-info p { color: var(--muted); font-size: 14px; }
+
+.cantidad { display: flex; align-items: center; gap: 4px; }
+.cantidad-valor { min-width: 28px; text-align: center; font-weight: 500; }
+.icon-btn-sm {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--outline);
+  background: var(--surface); color: var(--primary); cursor: pointer;
+  display: grid; place-items: center;
+}
+.icon-btn-sm:hover { background: var(--background-alt); }
+.icon-btn-sm .material-icons { font-size: 20px; }
+
+.item-subtotal { min-width: 96px; text-align: right; font-weight: 700; color: var(--primary); }
+
+.resumen { padding: 24px; gap: 12px; position: sticky; top: 88px; }
+.resumen h3 { font-weight: 500; margin-bottom: 4px; }
+.resumen-fila { display: flex; justify-content: space-between; color: var(--muted); }
+.resumen-fila.total {
+  color: var(--on-surface); font-size: 20px; font-weight: 700;
+  border-top: 1px solid var(--outline); padding-top: 12px; margin: 4px 0 8px;
+}
+.resumen .btn-outlined { color: var(--primary); }
+.seguir { text-align: center; color: var(--primary); text-decoration: none; font-weight: 500; margin-top: 4px; }
+.seguir:hover { text-decoration: underline; }
+
+.carrito-vacio { padding: 48px 24px; text-align: center; align-items: center; max-width: 480px; margin: 0 auto; gap: 8px; }
+.carrito-vacio .material-icons { font-size: 72px; color: var(--primary-light); }
+.carrito-vacio p { color: var(--muted); margin-bottom: 16px; }
+
+@media (max-width: 900px) {
+  .carrito-layout { grid-template-columns: 1fr; }
+  .resumen { position: static; }
+}
+@media (max-width: 600px) {
+  .item-carrito { flex-wrap: wrap; }
+  .item-info { flex-basis: calc(100% - 100px); }
+  .item-subtotal { text-align: left; flex: 1; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .btn-menu { display: grid; }
+  .carrito { margin-left: auto; }
+  .hero { padding: 56px 0; }
+  .hero .contenedor { grid-template-columns: 1fr; gap: 32px; }
+  .hero h1 { font-size: 36px; }
+  .hero-imagen { max-width: 280px; width: 100%; margin: 0 auto; }
+  .hero-imagen .material-icons { font-size: 120px; }
+  .planes { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .beneficios { grid-template-columns: repeat(2, 1fr); }
+  .contacto { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 500px) {
+  section { padding: 48px 0; }
+  .titulo-seccion { font-size: 26px; }
+  .beneficios { grid-template-columns: 1fr; }
+  .snackbar { bottom: 96px; }
+}
